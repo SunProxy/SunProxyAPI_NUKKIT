@@ -41,35 +41,35 @@ orbs:
 
 jobs:
   build:
+    docker:
+      - image: circleci/openjdk:stretch
+
     steps:
-      docker:
-        - image: circleci/openjdk:stretch
+      - checkout
 
-      steps:
-        - checkout
+      # specify any bash command here prefixed with `run: `
 
-          # specify any bash command here prefixed with `run: `
+      - discord/notify:
+          color: '4383476'
+          webhook: $DISCORD_WEBHOOK
 
-          - discord/notify:
-              color: '4383476'
-              webhook: $DISCORD_WEBHOOK
+      - run:
+        name: Build Binaries
+        command: |
+          mvn package
 
-          - run:
-              name: Build Binaries
-              command: |
-                mvn package
-          - run:
-              name: make Artifact Folder
-              command: |
-                mkdir /tmp/artifacts;
+      - run:
+        name: make Artifact Folder
+        command: |
+          mkdir /tmp/artifacts;
 
-          - run:
-              name: Move Binaries
-              command: |
-                mv target/SunProxyAPI-1.0-SNAPSHOT
+      - run:
+        name: Move Binaries
+        command: |
+          mv target/SunProxyAPI-1.0-SNAPSHOT
 
-          - discord/status:
-              webhook: $DISCORD_WEBHOOK
+      - discord/status:
+        webhook: $DISCORD_WEBHOOK
 
-          - store_artifacts:
-              path: /tmp/artifacts
+      - store_artifacts:
+        path: /tmp/artifacts
