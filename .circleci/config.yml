@@ -54,22 +54,22 @@ jobs:
           webhook: $DISCORD_WEBHOOK
 
       - run:
-        name: Build Binaries
-        command: |
-          mvn package
+          name: Build Binaries
+          command: |
+            mvn package
 
       - run:
-        name: make Artifact Folder
-        command: |
-          mkdir /tmp/artifacts;
+          name: make Artifact Folder
+          command: |
+            mkdir /tmp/artifacts;
 
       - run:
-        name: Move Binaries
-        command: |
-          mv target/SunProxyAPI-1.0-SNAPSHOT
+          name: Move Binaries
+          command: |
+            mv target/SunProxyAPI-1.0-SNAPSHOT
 
       - discord/status:
-        webhook: $DISCORD_WEBHOOK
+          webhook: $DISCORD_WEBHOOK
 
       - store_artifacts:
-        path: /tmp/artifacts
+          path: /tmp/artifacts
