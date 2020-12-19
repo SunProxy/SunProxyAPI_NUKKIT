@@ -55,4 +55,20 @@ public class SunProxyAPI {
         pk.message = msg;
         player.dataPacket(pk);
     }
+
+    /**
+     * @author Jviguy
+     *
+     * Sends a message to the given servers on the proxy
+     *
+     * @param player - the given player to send the packet too
+     * @param msg - the message to be sent
+     * @param servers - the servers the message should be sent too.
+     */
+    public static void SendChatToServers(Player player, String msg, String[] servers) {
+        SunTextPacket pk = new SunTextPacket();
+        pk.message = msg;
+        pk.servers = servers;
+        player.dataPacket(pk);
+    }
 }
