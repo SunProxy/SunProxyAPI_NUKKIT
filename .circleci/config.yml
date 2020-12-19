@@ -66,7 +66,7 @@ jobs:
       - run:
           name: Move Binaries
           command: |
-            mv target/SunProxyAPI-1.0-SNAPSHOT
+            mv target/SunProxyAPI-1.0-SNAPSHOT.jar /tmp/artifacts
 
       - discord/status:
           webhook: $DISCORD_WEBHOOK
