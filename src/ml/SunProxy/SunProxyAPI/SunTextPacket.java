@@ -28,7 +28,7 @@ public class SunTextPacket extends DataPacket {
         this.message = this.getString();
         long count = this.getUnsignedVarInt();
         for (int i = 0; i < count; i++) {
-            this.servers[this.servers.length-1] = this.getString();
+            this.servers[i] = this.getString();
         }
     }
 

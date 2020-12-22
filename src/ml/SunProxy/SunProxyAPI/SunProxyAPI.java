@@ -8,12 +8,12 @@ public class SunProxyAPI {
     /**
      * The ID of the SunTransferPacket
      */
-    static byte SUN_TRANSFER_PACKET = (byte) 300;
+    static byte SUN_TRANSFER_PACKET = (byte) 0xFA;
 
     /**
      * The ID of the SunTextPacket
      */
-    static byte SUN_TEXT_PACKET = (byte) 301;
+    static byte SUN_TEXT_PACKET = (byte) 0xFB;
 
     /**
      * @author Jviguy
